@@ -22,7 +22,7 @@
                 <label for="exampleFormControlInput1" class="form-label">Nombre</label>
                 <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
-            <div class="mb-3">
+            <div class="mb-4">
                 <label for="exampleFormControlInput1" class="form-label">Apellido</label>
                 <asp:TextBox ID="txtApellido" CssClass="form-control" runat="server"></asp:TextBox>
             </div>

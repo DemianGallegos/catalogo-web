@@ -41,6 +41,8 @@ namespace catalogo_web
                     List<Articulo> lista = negocio.listar(id);
                     Articulo seleccionado = lista[0];
 
+                    btnAgregar.Visible = false;
+
                     txtId.Text = id;
                     txtCodigo.Text = seleccionado.Codigo;
                     txtNombre.Text = seleccionado.Nombre;
@@ -56,11 +58,11 @@ namespace catalogo_web
                     //aparece el dibujo de la imagen rota
                     
                     txtImagenUrl_TextChanged(sender, e);
-                    
-                    
-
-
-
+                }
+                else
+                {
+                    btnModificar.Visible = false;
+                    btnEliminar.Visible = false;
                 }
 
 

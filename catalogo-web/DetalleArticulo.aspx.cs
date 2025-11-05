@@ -88,5 +88,10 @@ namespace catalogo_web
         {
             imgPrincipal.ImageUrl = imgBtn5.ImageUrl;
         }
+
+        protected void chkFavorito_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

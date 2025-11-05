@@ -96,7 +96,7 @@
                                         OnClick="btnAgregar_Click" Text="Agregar" />
                                     <asp:Button ID="btnModificar" runat="server" CssClass="btn btn-warning"
                                         OnClick="btnModificar_Click" Text="Modificar" />
-                                    <asp:Button ID="btnEliminar" runat="server" CssClass="btn btn-danger" 
+                                    <asp:Button ID="btnEliminar" runat="server" CssClass="btn btn-outline-danger" 
                                         OnClick="btnEliminar_Click" Text="Eliminar" />
                                     <a href="ArticulosLista.aspx" Class="btn btn-secondary">Cancelar</a>
                                 </div>
