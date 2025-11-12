@@ -15,7 +15,7 @@
 <body>
     <form id="form1" runat="server">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-body-secondary"> 
+        <nav class="navbar navbar-expand-lg navbar-light bg-body-secondary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Artículos Web</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,8 +38,21 @@
                     </ul>
                 </div>
                 <div class="d-flex">
-                    <a href="Login.aspx" class="btn">Login</a>
-                    <a href="Registro.aspx" class="btn">Registrarse</a>
+
+                    <%if (!negocio.Seguridad.sesionActiva(Session["usuario"]))
+                      {%>
+                        <a href="Login.aspx" class="btn">Login</a>
+                        <a href="Registro.aspx" class="btn me-1">Registrarse</a>
+                    <%}
+                      else
+                      {%>
+                        <asp:Button ID="btnSalir" CssClass="btn" runat="server" Text="Salir" />
+                        <asp:Label ID="lblUser" class="form-control-plaintext me-3" runat="server" Text="Label"></asp:Label>  
+
+                    <%}%>
+                    
+                      <asp:Image ID="imgAvatar" ImageUrl="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
+                        Style="height: 35px; width: 35px; border-radius: 50%;" runat="server" />
                 </div>
             </div>
         </nav>

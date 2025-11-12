@@ -10,7 +10,7 @@
                 <div>
                     <h1 class="h3 fw-normal mb-1">Registrate</h1>
                     <div class="mb-3">
-                        <small class="text-muted">Luego creá tu perfil de usuario</small>
+                        <!--<small class="text-muted">Luego creá tu perfil de usuario</small>-->
                     </div>
                     <div class="form-floating mb-2">
                         <input type="email" class="form-control" ID="txtEmail" runat="server" ClientIDMode="Static" placeholder="name@example.com">
