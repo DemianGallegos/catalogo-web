@@ -45,7 +45,7 @@
             </div>
 
             <div class="form-check">
-                <asp:CheckBox ID="chkFavorito" OnCheckedChanged="chkFavorito_CheckedChanged" runat="server" />
+                <asp:CheckBox ID="chkFavorito" OnCheckedChanged="chkFavorito_CheckedChanged" AutoPostBack="true" runat="server" />
                 <label class="form-check-label" for="chkFavorito">
                     Favorito
                 </label>

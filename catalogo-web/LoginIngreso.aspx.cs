@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace catalogo_web
 {
-    public partial class LoginSuccess : System.Web.UI.Page
+    public partial class LoginIngreso : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

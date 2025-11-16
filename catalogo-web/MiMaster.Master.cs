@@ -13,20 +13,27 @@ namespace catalogo_web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // ACTIVAR SEGURIDAD 
-            // Incompleto
+            // Incompleto. Creo se ve el id del usuario arriba
 
-            if(!(Page is Login || Page is LoginSuccess || Page is Default || Page is Registro))
+            if(!(Page is Login || Page is LoginIngreso || Page is Default || Page is Registro || Page is Error))
             {
                 if (!Seguridad.sesionActiva(Session["usuario"]))
                     Response.Redirect("Login.aspx", false);
-                else
-                {
-                    Usuario usuario = (Usuario)Session["usuario"];
-                    lblUser.Text = usuario.Email;
-                }
                      
             }
+            if((Usuario)Session["usuario"] != null)
+            {
+                Usuario usuario = (Usuario)Session["usuario"];
+                lblUser.Text = usuario.Email;
+            }
+                
+        }
+
+        protected void btnSalir_Click(object sender, EventArgs e)
+        {
+            if (Seguridad.sesionActiva(Session["usuario"]))
+                Session.Clear();
+            Response.Redirect("Login.aspx", true);
         }
     }
 }

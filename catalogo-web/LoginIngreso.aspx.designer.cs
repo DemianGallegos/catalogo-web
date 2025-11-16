@@ -11,7 +11,7 @@ namespace catalogo_web
 {
 
 
-    public partial class LoginSuccess
+    public partial class LoginIngreso
     {
     }
 }

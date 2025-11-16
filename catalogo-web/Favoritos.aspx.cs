@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using dominio;
+using negocio;
 
 namespace catalogo_web
 {
@@ -11,6 +13,13 @@ namespace catalogo_web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Usuario usuario = (Usuario)Session["usuario"];
+            FavoritoNegocio negocio = new FavoritoNegocio();
+
+            List<Favorito> listaFavoritos = negocio.listar(usuario);
+
+            
+            
 
         }
     }

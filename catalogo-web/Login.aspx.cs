@@ -28,8 +28,7 @@ namespace catalogo_web
                 if (negocio.Login(usuario))
                 {
                     Session.Add("usuario", usuario);
-                    Response.Redirect("LoginSuccess.aspx", false);
-                    //Response.Write("<script>console.log('Te logueaste correctamente');</script>");
+                    Response.Redirect("LoginIngreso.aspx", false);
 
                 }
                 else

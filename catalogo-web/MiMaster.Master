@@ -46,7 +46,7 @@
                     <%}
                       else
                       {%>
-                        <asp:Button ID="btnSalir" CssClass="btn" runat="server" Text="Salir" />
+                        <asp:Button ID="btnSalir" CssClass="btn" OnClick="btnSalir_Click" runat="server" Text="Salir" />
                         <asp:Label ID="lblUser" class="form-control-plaintext me-3" runat="server" Text="Label"></asp:Label>  
 
                     <%}%>

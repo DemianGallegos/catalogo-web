@@ -31,7 +31,7 @@ namespace catalogo_web
             catch (Exception ex)
             {
                 throw ex;
-                //Session.Add.......
+                //Session.Add  ? .......
             }
         }
     }

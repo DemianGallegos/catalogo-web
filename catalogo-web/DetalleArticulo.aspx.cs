@@ -20,7 +20,6 @@ namespace catalogo_web
             //Validación para que no se rompa si no trae el id desde el Home.
             //O no debria abrirse la página directamente? analizar el asunto...
 
-            
 
             if (Request.QueryString["id"] == null || Request.QueryString["id"] == "")
             {
@@ -37,6 +36,9 @@ namespace catalogo_web
                     List<Articulo> lista = negocio.listar(id);
                     Articulo seleccionado = lista[0];
 
+                    //Guardo el artículo seleccionado en Session que luego voy a utilizar en el evento del chkFavorito
+                    Session.Add("artiSeleccionado", seleccionado);
+
 
                     imgBtn1.ImageUrl = seleccionado.ImagenUrl;
                     imgPrincipal.ImageUrl = imgBtn1.ImageUrl;
@@ -47,6 +49,9 @@ namespace catalogo_web
                     lblMarca.Text = seleccionado.Marca.Descripcion;
                     lblDescripcion.Text = seleccionado.Descripcion;
                     lblPrecio.Text = seleccionado.Precio.ToString("N2");
+
+                    //if(Seguridad.sesionActiva(Session["usuario"]))
+                    //    chkFavorito.Checked = obtenerEstadoDB();
 
                     imgBtn2.ImageUrl = "https://www.svgrepo.com/show/508699/landscape-placeholder.svg";
                     imgBtn3.ImageUrl = "https://www.svgrepo.com/show/508699/landscape-placeholder.svg";
@@ -91,7 +96,53 @@ namespace catalogo_web
 
         protected void chkFavorito_CheckedChanged(object sender, EventArgs e)
         {
+            if (chkFavorito.Checked)
+            {
+                //Acá ejecuta acción
 
+                //Guarda el artículo como Favorito
+
+                //Primero construir la lógica como si fuera un OnClickButton
+
+                //Luego pensar como seria el caso de que el artículo ya estuviera seleccionado como favorito,
+                //o sea como lo leería par que no vuelva a guardarlo,
+                //La lógica seria if(!chkFavorito.Checked) alli ejecuta la acción
+                //(Si es checked o no lo tiene que leer en el Page_Load)
+
+                //Lanzar un cartel que diga que Agregaste...
+
+                Favorito nuevo = new Favorito();
+                FavoritoNegocio negocio = new FavoritoNegocio();
+                Usuario usuario = (Usuario)Session["usuario"];
+                Articulo articulo = (Articulo)Session["artiSeleccionado"];
+
+                nuevo.IdUser = usuario.Id;
+                nuevo.IdArticulo = articulo.Id;
+                negocio.insertNuevo(nuevo);
+
+
+                //nuevo.Codigo = txtCodigo.Text;
+                //nuevo.Nombre = txtNombre.Text;
+                //nuevo.Descripcion = txtDescripcion.Text;
+
+                //nuevo.Categoria = new Categoria();
+                //nuevo.Categoria.Id = int.Parse(ddlCategoria.SelectedValue);
+                //nuevo.Marca = new Marca();
+                //nuevo.Marca.Id = int.Parse(ddlMarca.SelectedValue);
+
+                //nuevo.ImagenUrl = txtImagenUrl.Text;
+                //nuevo.Precio = decimal.Parse(txtPrecio.Text);
+
+                //negocio.agregarConSP(nuevo);
+                //Response.Redirect("ArticulosLista.aspx", false);
+
+
+            }
+            else
+            {
+                //Si estaba checked elimina de la lista
+                //Lanzar un cartel que diga Eliminatse...
+            }
         }
     }
 }

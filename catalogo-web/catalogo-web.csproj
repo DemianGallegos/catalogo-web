@@ -75,7 +75,7 @@
     <Content Include="FormularioArticulo.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
-    <Content Include="LoginSuccess.aspx" />
+    <Content Include="LoginIngreso.aspx" />
     <Content Include="MiPerfil.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="Web.config" />
@@ -133,12 +133,12 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LoginSuccess.aspx.cs">
-      <DependentUpon>LoginSuccess.aspx</DependentUpon>
+    <Compile Include="LoginIngreso.aspx.cs">
+      <DependentUpon>LoginIngreso.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="LoginSuccess.aspx.designer.cs">
-      <DependentUpon>LoginSuccess.aspx</DependentUpon>
+    <Compile Include="LoginIngreso.aspx.designer.cs">
+      <DependentUpon>LoginIngreso.aspx</DependentUpon>
     </Compile>
     <Compile Include="MiMaster.Master.cs">
       <DependentUpon>MiMaster.Master</DependentUpon>
