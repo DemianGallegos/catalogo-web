@@ -15,11 +15,30 @@ namespace catalogo_web
         {
             Usuario usuario = (Usuario)Session["usuario"];
             FavoritoNegocio negocio = new FavoritoNegocio();
+           
+            List<Articulo> listaArticulos = negocio.listar(usuario);
 
-            List<Favorito> listaFavoritos = negocio.listar(usuario);
+            if (!IsPostBack)
+            {
+                repRepetidor.DataSource = listaArticulos;
+                repRepetidor.DataBind();
+            }
+        }
 
-            
-            
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            FavoritoNegocio negocio = new FavoritoNegocio();
+
+            string valor = ((Button)sender).CommandArgument;
+            negocio.eliminar(int.Parse(valor));
+
+            //Acá vuelvo  acargar la lista 
+            //Simplificar código ! 
+
+            Usuario usuario = (Usuario)Session["usuario"];
+            List<Articulo> listaArticulos = negocio.listar(usuario);
+            repRepetidor.DataSource = listaArticulos;
+            repRepetidor.DataBind();
 
         }
     }
