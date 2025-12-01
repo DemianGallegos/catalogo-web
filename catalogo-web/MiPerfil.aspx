@@ -32,6 +32,7 @@
         <div class="col-3">
             <div class="mb-3">
                 <label class="form-label">Imagen Perfil</label>
+                 <!--<input type="file" class="form-control" id="inputGroupFile01">-->
                 <asp:TextBox ID="txtUrlImagen" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
             <div class="row">

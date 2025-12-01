@@ -18,9 +18,6 @@ namespace catalogo_web
         protected void Page_Load(object sender, EventArgs e)
         {
             //Validación para que no se rompa si no trae el id desde el Home.
-            //O no debria abrirse la página directamente? analizar el asunto...
-
-            
 
             if (Request.QueryString["id"] == null || Request.QueryString["id"] == "")
             {
@@ -29,7 +26,7 @@ namespace catalogo_web
             }
             string id = Request.QueryString["id"].ToString();
 
-           
+
             try
             {
                 if (!IsPostBack)
@@ -110,24 +107,13 @@ namespace catalogo_web
             Articulo articulo = (Articulo)Session["artiSeleccionado"];
 
 
-            //Arreglar esto!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
             if (!chkFavorito.Checked)
             {
-                //Acá ejecuta acción
-
-                //Guarda el artículo como Favorito
-
-                //Primero construir la lógica como si fuera un OnClickButton
-
-                //Luego pensar como seria el caso de que el artículo ya estuviera seleccionado como favorito,
-                //o sea como lo leería par que no vuelva a guardarlo,
-                //La lógica seria if(!chkFavorito.Checked) alli ejecuta la acción
-                //(Si es checked o no lo tiene que leer en el Page_Load)
-
                 //Lanzar un cartel que diga que Agregaste...
 
                 negocio.eliminar(articulo.Id);
+
+                ToastHelper.ShowToast(this, "El Artículo a sido eliminado de la lista", "info");
 
             }
             else
@@ -135,8 +121,8 @@ namespace catalogo_web
                 nuevo.IdUser = usuario.Id;
                 nuevo.IdArticulo = articulo.Id;
                 negocio.insertNuevo(nuevo);
-                
-                //Lanzar un cartel que diga Eliminatse...
+
+                ToastHelper.ShowToast(this, "Has agregado este Articulo a tu lista", "info");
             }
         }
     }

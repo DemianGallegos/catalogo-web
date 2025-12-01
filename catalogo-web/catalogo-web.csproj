@@ -162,6 +162,7 @@
     <Compile Include="Registro.aspx.designer.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ToastHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MiMaster.Master" />

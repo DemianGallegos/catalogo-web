@@ -42,8 +42,6 @@ namespace catalogo_web
         }
         protected void btnAplicar_Click(object sender, EventArgs e)
         {
-            //Cuando se dispara el evento debe inhabilitar el txtFiltro
-            //tengo que agrgar un botón Close que borre los radioButtons checkeados.
             //Y que re habilite el txtFiltro también? 
 
             string categoriaSeleccionada;

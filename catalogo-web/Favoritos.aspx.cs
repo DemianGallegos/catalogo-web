@@ -13,6 +13,12 @@ namespace catalogo_web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if ((Usuario)Session["usuario"] == null)
+            {
+                Response.Redirect("Login.aspx");
+                return;
+            }
+
             Usuario usuario = (Usuario)Session["usuario"];
             FavoritoNegocio negocio = new FavoritoNegocio();
            

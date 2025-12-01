@@ -19,6 +19,11 @@ namespace catalogo_web
                 {
                     Usuario usuario = (Usuario)Session["usuario"];
                     txtEmail.Text = usuario.Email;
+                    txtNombre.Text = usuario.Nombre;
+                    txtApellido.Text = usuario.Apellido;
+                    txtUrlImagen.Text = usuario.UrlImagenPerfil;
+                    imgNuevoPerfil.ImageUrl = txtUrlImagen.Text;
+
                 }
             }
             

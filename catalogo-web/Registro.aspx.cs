@@ -27,6 +27,9 @@ namespace catalogo_web
                 usuario.Pass = txtPassword.Value;
 
                 negocio.insertNuevo(usuario);
+
+                Response.Redirect("Login.aspx", false);
+
             }
             catch (Exception ex)
             {
