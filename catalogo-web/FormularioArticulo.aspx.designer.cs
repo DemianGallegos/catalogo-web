@@ -15,6 +15,15 @@ namespace catalogo_web
     {
 
         /// <summary>
+        /// Control btnEliminar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEliminar;
+
+        /// <summary>
         /// Control txtId.
         /// </summary>
         /// <remarks>
@@ -114,12 +123,12 @@ namespace catalogo_web
         protected global::System.Web.UI.WebControls.Button btnModificar;
 
         /// <summary>
-        /// Control btnEliminar.
+        /// Control btnModal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEliminar;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnModal;
     }
 }

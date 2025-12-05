@@ -33,7 +33,7 @@
             <div class="mb-3">
                 <label class="form-label">Imagen Perfil</label>
                  <!--<input type="file" class="form-control" id="inputGroupFile01">-->
-                <asp:TextBox ID="txtUrlImagen" CssClass="form-control" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtUrlImagen" CssClass="form-control" OnTextChanged="txtUrlImagen_TextChanged" AutoPostBack="true" runat="server"></asp:TextBox>
             </div>
             <div class="row">
                 <div class="col-md-7">

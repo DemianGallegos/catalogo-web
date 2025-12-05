@@ -32,16 +32,18 @@ namespace catalogo_web
                     ddlMarca.DataValueField = "Id";
                     ddlMarca.DataTextField = "Descripcion";
                     ddlMarca.DataBind();
+
+
                 }
                 //Si estamos modificando
                 string id = Request.QueryString["id"] != null ? Request.QueryString["id"].ToString() : "";
                 if (id != "" && !IsPostBack)
                 {
+                    btnAgregar.Visible = false;
+                    
                     ArticuloNegocio negocio = new ArticuloNegocio();
                     List<Articulo> lista = negocio.listar(id);
                     Articulo seleccionado = lista[0];
-
-                    btnAgregar.Visible = false;
 
                     txtId.Text = id;
                     txtCodigo.Text = seleccionado.Codigo;
@@ -59,10 +61,10 @@ namespace catalogo_web
                     
                     txtImagenUrl_TextChanged(sender, e);
                 }
-                else
+                if(id == "" || id == null)
                 {
                     btnModificar.Visible = false;
-                    btnEliminar.Visible = false;
+                    btnModal.Visible = false;
                 }
 
 
@@ -86,16 +88,12 @@ namespace catalogo_web
                 nuevo.Codigo = txtCodigo.Text;
                 nuevo.Nombre = txtNombre.Text;
                 nuevo.Descripcion = txtDescripcion.Text;
-
                 nuevo.Categoria = new Categoria();
                 nuevo.Categoria.Id = int.Parse(ddlCategoria.SelectedValue);
                 nuevo.Marca = new Marca();
                 nuevo.Marca.Id = int.Parse(ddlMarca.SelectedValue);
-
                 nuevo.ImagenUrl = txtImagenUrl.Text;
                 nuevo.Precio = decimal.Parse(txtPrecio.Text);
-
-                //Agregar también UrlImagen
 
                 negocio.agregarConSP(nuevo);
                 Response.Redirect("ArticulosLista.aspx", false);
@@ -142,7 +140,6 @@ namespace catalogo_web
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
-            //Falta Validación de seguridad, "está seguro?" o lo que sea
 
             try
             {

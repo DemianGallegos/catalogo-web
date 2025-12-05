@@ -41,13 +41,18 @@ namespace catalogo_web
                 usuario.UrlImagenPerfil = txtUrlImagen.Text;
                 negocio.Actualizar(usuario);
 
-                //no es prolijo que una variable tenga 3 nombres distintos, en el txt, en la db y la pro 
+                ToastHelper.ShowToast(this, "Se actualizaron tu datos de perfil. ", "info");
             }
             catch (Exception ex)
             {
                 //Session.Add...
                 throw ex;
             }
+        }
+
+        protected void txtUrlImagen_TextChanged(object sender, EventArgs e)
+        {
+            imgNuevoPerfil.ImageUrl = txtUrlImagen.Text;
         }
     }
 }

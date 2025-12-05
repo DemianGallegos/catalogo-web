@@ -13,7 +13,9 @@
         <div class="col-10">
             <div class="h3 pt-2">Lista de artículos</div>
             <asp:GridView ID="dgvArticulos" runat="server" DataKeyNames="Id"
-                AutoGenerateColumns="false" OnSelectedIndexChanged="dgvArticulos_SelectedIndexChanged" CssClass="table table-light table-bordered">
+                AutoGenerateColumns="false" OnSelectedIndexChanged="dgvArticulos_SelectedIndexChanged"
+                OnPageIndexChanging="dgvArticulos_PageIndexChanging"
+                AllowPaging="true" PageSize="6" CssClass="table table-light table-bordered">
                 <Columns>
                     <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
                     <asp:BoundField HeaderText="Marca" DataField="Marca" />
