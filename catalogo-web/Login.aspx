@@ -10,11 +10,11 @@
                 <div>
                     <h1 class="h3 mb-3 fw-normal">Login</h1>
                     <div class="form-floating mb-2">
-                        <input type="email" class="form-control" ID="txtEmail" runat="server" ClientIDMode="Static" placeholder="name@example.com">
+                        <asp:TextBox ID="txtEmail" CssClass="form-control" placeholder="Email" runat="server"></asp:TextBox>
                         <label for="floatingInput">Email</label>
                     </div>
                     <div class="form-floating mb-4">
-                        <input type="password" class="form-control" ID="txtPassword" runat="server" ClientIDMode="Static" placeholder="Password">
+                        <asp:TextBox ID="txtPassword" CssClass="form-control" placeholder="Password" runat="server"></asp:TextBox>
                         <label for="floatingPassword">Password</label>
                     </div>
                     <asp:Button ID="btnIngresar" runat="server" OnClick="btnIngresar_Click" CssClass="btn btn-primary w-100 py-2" Text="Ingresar" />

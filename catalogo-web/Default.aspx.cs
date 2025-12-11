@@ -45,38 +45,43 @@ namespace catalogo_web
             //Y que re habilite el txtFiltro también? 
 
             string categoriaSeleccionada;
+            try
+            {
+                if (rdbCelulares.Checked)
+                    categoriaSeleccionada = "Celulares";
+                else if (rdbTelevisores.Checked)
+                    categoriaSeleccionada = "Televisores";
+                else if (rdbMedia.Checked)
+                    categoriaSeleccionada = "Media";
+                else if (rdbAudio.Checked)
+                    categoriaSeleccionada = "Audio";
+                else
+                    categoriaSeleccionada = null;
 
-            if (rdbCelulares.Checked)
-                categoriaSeleccionada = "Celulares";
-            else if (rdbTelevisores.Checked)
-                categoriaSeleccionada = "Televisores";
-            else if (rdbMedia.Checked)
-                categoriaSeleccionada = "Media";
-            else if (rdbAudio.Checked)
-                categoriaSeleccionada = "Audio";
-            else
-                categoriaSeleccionada = null;
+                string marcaSeleccionada;
 
-            string marcaSeleccionada;
+                if (rdbSamsung.Checked)
+                    marcaSeleccionada = "Samsung";
+                else if (rdbApple.Checked)
+                    marcaSeleccionada = "Apple";
+                else if (rdbSony.Checked)
+                    marcaSeleccionada = "Sony";
+                else if (rdbMotorola.Checked)
+                    marcaSeleccionada = "Huawei";
+                else if (rdbMotorola.Checked)
+                    marcaSeleccionada = "Motorola";
+                else
+                    marcaSeleccionada = null;
 
-            if (rdbSamsung.Checked)
-                marcaSeleccionada = "Samsung";
-            else if (rdbApple.Checked)
-                marcaSeleccionada = "Apple";
-            else if (rdbSony.Checked)
-                marcaSeleccionada = "Sony";
-            else if (rdbMotorola.Checked)
-                marcaSeleccionada = "Huawei";
-            else if (rdbMotorola.Checked)
-                marcaSeleccionada = "Motorola";
-            else
-                marcaSeleccionada = null;
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                ArticulosLista = negocio.filtrar(categoriaSeleccionada, marcaSeleccionada);
 
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            ArticulosLista = negocio.filtrar(categoriaSeleccionada, marcaSeleccionada);
-
-
-
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx");
+            }
         }
 
         protected void btnDelFiltro_Click(object sender, EventArgs e)

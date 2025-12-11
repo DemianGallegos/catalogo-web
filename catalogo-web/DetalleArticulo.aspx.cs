@@ -26,7 +26,6 @@ namespace catalogo_web
             }
             string id = Request.QueryString["id"].ToString();
 
-
             try
             {
                 if (!IsPostBack)
@@ -63,14 +62,12 @@ namespace catalogo_web
                     imgBtn4.ImageUrl = "https://www.svgrepo.com/show/508699/landscape-placeholder.svg";
                     imgBtn5.ImageUrl = "https://www.svgrepo.com/show/508699/landscape-placeholder.svg";
                 }
-
             }
-
             catch (Exception ex)
             {
-                throw ex;
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx");
             }
-
 
         }
 
@@ -106,24 +103,32 @@ namespace catalogo_web
             Usuario usuario = (Usuario)Session["usuario"];
             Articulo articulo = (Articulo)Session["artiSeleccionado"];
 
-
-            if (!chkFavorito.Checked)
+            try
             {
-                //Lanzar un cartel que diga que Agregaste...
+                if (!chkFavorito.Checked)
+                {
+                    //Lanzar un cartel que diga que Agregaste...
 
-                negocio.eliminar(articulo.Id);
+                    negocio.eliminar(articulo.Id);
 
-                ToastHelper.ShowToast(this, "El Artículo a sido eliminado de la lista", "info");
+                    ToastHelper.ShowToast(this, "El Artículo a sido eliminado de la lista", "info");
 
+                }
+                else
+                {
+                    nuevo.IdUser = usuario.Id;
+                    nuevo.IdArticulo = articulo.Id;
+                    negocio.insertNuevo(nuevo);
+
+                    ToastHelper.ShowToast(this, "Has agregado este Articulo a tu lista", "info");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                nuevo.IdUser = usuario.Id;
-                nuevo.IdArticulo = articulo.Id;
-                negocio.insertNuevo(nuevo);
-
-                ToastHelper.ShowToast(this, "Has agregado este Articulo a tu lista", "info");
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx");
             }
+
         }
     }
 }

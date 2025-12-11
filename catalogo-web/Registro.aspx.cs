@@ -23,8 +23,8 @@ namespace catalogo_web
 
             try
             {
-                usuario.Email = txtEmail.Value;
-                usuario.Pass = txtPassword.Value;
+                usuario.Email = txtEmail.Text;
+                usuario.Pass = txtPassword.Text;
 
                 negocio.insertNuevo(usuario);
 
@@ -33,8 +33,9 @@ namespace catalogo_web
             }
             catch (Exception ex)
             {
-                throw ex;
-                //Session.Add  ? .......
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx");
+                
             }
         }
     }

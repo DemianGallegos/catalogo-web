@@ -21,7 +21,7 @@ namespace catalogo_web
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
         /// <summary>
         /// Control txtPassword.
@@ -30,7 +30,7 @@ namespace catalogo_web
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtPassword;
 
         /// <summary>
         /// Control btnIngresar.

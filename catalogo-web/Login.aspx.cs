@@ -23,8 +23,8 @@ namespace catalogo_web
 
             try
             {
-                usuario.Email = txtEmail.Value;
-                usuario.Pass = txtPassword.Value;
+                usuario.Email = txtEmail.Text;
+                usuario.Pass = txtPassword.Text;
                 if (negocio.Login(usuario))
                 {
                     Session.Add("usuario", usuario);

@@ -13,19 +13,28 @@ namespace catalogo_web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            try
             {
-                if((Usuario)Session["usuario"] != null)
+                if (!IsPostBack)
                 {
-                    Usuario usuario = (Usuario)Session["usuario"];
-                    txtEmail.Text = usuario.Email;
-                    txtNombre.Text = usuario.Nombre;
-                    txtApellido.Text = usuario.Apellido;
-                    txtUrlImagen.Text = usuario.UrlImagenPerfil;
-                    imgNuevoPerfil.ImageUrl = txtUrlImagen.Text;
+                    if ((Usuario)Session["usuario"] != null)
+                    {
+                        Usuario usuario = (Usuario)Session["usuario"];
+                        txtEmail.Text = usuario.Email;
+                        txtNombre.Text = usuario.Nombre;
+                        txtApellido.Text = usuario.Apellido;
+                        txtUrlImagen.Text = usuario.UrlImagenPerfil;
+                        imgNuevoPerfil.ImageUrl = txtUrlImagen.Text;
 
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx");
+            }
+            
             
         }
 
@@ -45,8 +54,9 @@ namespace catalogo_web
             }
             catch (Exception ex)
             {
-                //Session.Add...
-                throw ex;
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx");
+
             }
         }
 

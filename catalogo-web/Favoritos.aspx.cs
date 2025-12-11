@@ -34,17 +34,25 @@ namespace catalogo_web
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
             FavoritoNegocio negocio = new FavoritoNegocio();
+            try
+            {
+                string valor = ((Button)sender).CommandArgument;
+                negocio.eliminar(int.Parse(valor));
 
-            string valor = ((Button)sender).CommandArgument;
-            negocio.eliminar(int.Parse(valor));
+                //Simplificar código ! 
 
-            //Acá vuelvo  acargar la lista 
-            //Simplificar código ! 
-
-            Usuario usuario = (Usuario)Session["usuario"];
-            List<Articulo> listaArticulos = negocio.listar(usuario);
-            repRepetidor.DataSource = listaArticulos;
-            repRepetidor.DataBind();
+                Usuario usuario = (Usuario)Session["usuario"];
+                List<Articulo> listaArticulos = negocio.listar(usuario);
+                repRepetidor.DataSource = listaArticulos;
+                repRepetidor.DataBind();
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx");
+               
+            }
+            
 
         }
     }

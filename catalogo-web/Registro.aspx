@@ -13,11 +13,11 @@
                         <!--<small class="text-muted">Luego creá tu perfil de usuario</small>-->
                     </div>
                     <div class="form-floating mb-2">
-                        <input type="email" class="form-control" ID="txtEmail" runat="server" ClientIDMode="Static" placeholder="name@example.com">
+                        <asp:TextBox ID="txtEmail" CssClass="form-control" placeholder="Email" runat="server"></asp:TextBox>
                         <label for="floatingInput">Email</label>
                     </div>
                     <div class="form-floating mb-4">
-                        <input type="password" class="form-control" ID="txtPassword" runat="server" ClientIDMode="Static" placeholder="Password">
+                        <asp:TextBox ID="txtPassword" CssClass="form-control" placeholder="Password" runat="server"></asp:TextBox>
                         <label for="floatingPassword">Password</label>
                     </div>
 
