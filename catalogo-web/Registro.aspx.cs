@@ -13,7 +13,7 @@ namespace catalogo_web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void btnRegistrarse_Click(object sender, EventArgs e)
@@ -23,6 +23,9 @@ namespace catalogo_web
 
             try
             {
+                if (!Page.IsValid)
+                    return;
+
                 usuario.Email = txtEmail.Text;
                 usuario.Pass = txtPassword.Text;
 

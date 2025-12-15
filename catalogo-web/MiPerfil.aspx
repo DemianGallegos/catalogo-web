@@ -1,6 +1,32 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MiMaster.Master" AutoEventWireup="true" CodeBehind="MiPerfil.aspx.cs" Inherits="catalogo_web.MiPerfil" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script>
+        function validar() {
+            
+            const txtNombre = document.getElementById("txtNombre");
+            const txtApellido = document.getElementById("txtApellido");
+
+            // Limpiar
+            txtNombre.classList.remove("is-invalid");
+            txtApellido.classList.remove("is-invalid");
+
+            var valido = true;
+
+            if (txtNombre.value == "") {
+                txtNombre.classList.add("is-invalid");
+                valido = false;
+            }
+
+            if (txtApellido.value == "") {
+                txtApellido.classList.add("is-invalid");
+                valido = false;
+            }
+
+            return valido;
+        }
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row mt-3">
@@ -19,14 +45,15 @@
                 <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
             <div class="mb-3">
+
                 <label for="exampleFormControlInput1" class="form-label">Nombre</label>
-                <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtNombre" CssClass="form-control" ClientIDMode="Static" runat="server"></asp:TextBox>
             </div>
             <div class="mb-4">
                 <label for="exampleFormControlInput1" class="form-label">Apellido</label>
-                <asp:TextBox ID="txtApellido" CssClass="form-control" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtApellido" CssClass="form-control" ClientIDMode="Static" runat="server"></asp:TextBox>
             </div>
-            <asp:Button ID="btnGuardar" CssClass="btn btn-primary" OnClick="btnGuardar_Click" runat="server" Text="Guardar" />  
+            <asp:Button ID="btnGuardar" CssClass="btn btn-primary" OnClientClick="return validar()" OnClick="btnGuardar_Click" runat="server" Text="Guardar" />  
         </div>
 
         <div class="col-3">

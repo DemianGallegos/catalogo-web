@@ -23,6 +23,10 @@ namespace catalogo_web
 
             try
             {
+
+                if (!Page.IsValid)
+                    return;
+               
                 usuario.Email = txtEmail.Text;
                 usuario.Pass = txtPassword.Text;
                 if (negocio.Login(usuario))

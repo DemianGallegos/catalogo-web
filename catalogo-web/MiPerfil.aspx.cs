@@ -15,6 +15,7 @@ namespace catalogo_web
         {
             try
             {
+                txtEmail.Enabled = false;
                 if (!IsPostBack)
                 {
                     if ((Usuario)Session["usuario"] != null)
