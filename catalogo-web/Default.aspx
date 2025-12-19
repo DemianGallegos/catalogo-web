@@ -20,7 +20,7 @@
         <div class="row pt-2 pb-2">
             <div class="col-3"></div>
             <div class="col-6">
-                <h4 class="mb-4">Explorá nuestro catálogo de artículos</h4>
+                <h4 class="mb-4 mt-2">Explorá nuestro catálogo de artículos</h4>
                 <div class="row">
                     <div class="col-md-10 mb-2">
                         <div class="input-group">

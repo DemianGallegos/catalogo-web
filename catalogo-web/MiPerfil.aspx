@@ -32,8 +32,8 @@
     <div class="row mt-3">
         <div class="col-3"></div>
         <div class="col-6">
-            <h3>Mi Perfil</h3>
-            <hr />
+            <h4>Mi Perfil</h4>
+            <hr class="mt-2 mb-3" />
         </div>
         <div class="col-3"></div>
     </div>

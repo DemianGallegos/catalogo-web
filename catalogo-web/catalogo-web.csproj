@@ -163,6 +163,7 @@
       <DependentUpon>Registro.aspx</DependentUpon>
     </Compile>
     <Compile Include="ToastHelper.cs" />
+    <Compile Include="Validar.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MiMaster.Master" />

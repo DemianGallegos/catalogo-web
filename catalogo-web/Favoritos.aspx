@@ -7,7 +7,7 @@
         <div class="row min-vh-100">
             <div class="col-3"></div>
             <div class="col-6">
-                <div class="h5 pt-4">Favoritos</div>
+                <div class="h4 pt-3">Favoritos</div>
                 <hr class="mt-1 mb-3">
                 <div class="row  min-vh-100 bg-white">
                     <div class="py-3">

@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-1"></div>
         <div class="col-10">
-            <div class="h3 pt-2">Lista de artículos</div>
+            <div class="h4 pb-1 pt-3">Lista de artículos</div>
             <asp:GridView ID="dgvArticulos" runat="server" DataKeyNames="Id"
                 AutoGenerateColumns="false" OnSelectedIndexChanged="dgvArticulos_SelectedIndexChanged"
                 OnPageIndexChanging="dgvArticulos_PageIndexChanging"

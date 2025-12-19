@@ -49,12 +49,16 @@ namespace catalogo_web
                 usuario.Nombre = txtNombre.Text;
                 usuario.Apellido = txtApellido.Text;
                 usuario.UrlImagenPerfil = txtUrlImagen.Text;
+
                 negocio.Actualizar(usuario);
 
                 ToastHelper.ShowToast(this, "Se actualizaron tu datos de perfil. ", "info");
             }
             catch (Exception ex)
             {
+                //Deberiá personalizar cada excepción describiendo el problema?
+                //En este caso, "Error al intentar actualizar tus datos de Perfil"
+                
                 Session.Add("error", ex.ToString());
                 Response.Redirect("Error.aspx");
 

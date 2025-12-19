@@ -40,7 +40,7 @@ namespace catalogo_web
                 if (id != "" && !IsPostBack)
                 {
                     btnAgregar.Visible = false;
-                    
+
                     ArticuloNegocio negocio = new ArticuloNegocio();
                     List<Articulo> lista = negocio.listar(id);
                     Articulo seleccionado = lista[0];
@@ -58,10 +58,10 @@ namespace catalogo_web
                     //la imagen por defecto
                     //También sucede que si carga una url rota o un cadena de caracteres cualquiera
                     //aparece el dibujo de la imagen rota
-                    
+
                     txtImagenUrl_TextChanged(sender, e);
                 }
-                if(id == "" || id == null)
+                if (id == "" || id == null)
                 {
                     btnModificar.Visible = false;
                     btnModal.Visible = false;
@@ -81,6 +81,12 @@ namespace catalogo_web
         {
             try
             {
+                if(validarFormArticulo()) 
+                {
+                    divAlert.Visible = true;
+                    return;
+                }
+
                 Articulo nuevo = new Articulo();
                 ArticuloNegocio negocio = new ArticuloNegocio();
 
@@ -109,6 +115,12 @@ namespace catalogo_web
         {
             try
             {
+                if (validarFormArticulo())
+                {
+                    divAlert.Visible = true;
+                    return;
+                }
+
                 Articulo arti = new Articulo();
                 ArticuloNegocio negocio = new ArticuloNegocio();
 
@@ -159,5 +171,21 @@ namespace catalogo_web
         {
             ImgArticulo.ImageUrl = txtImagenUrl.Text;
         }
+
+        protected bool validarFormArticulo()
+        {
+            if (
+                !Validar.validaTextoReq(txtCodigo) ||
+                !Validar.validaTextoReq(txtNombre) ||
+                !Validar.validaTextoReq(txtDescripcion) ||
+                !Validar.ddlSeleccionValida(ddlCategoria) ||
+                !Validar.ddlSeleccionValida(ddlMarca) ||
+                !Validar.precioValido(txtPrecio.Text)
+                )
+                return true;
+            else
+                return false;
+        }
+
     }
 }
