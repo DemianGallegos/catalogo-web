@@ -11,7 +11,27 @@ namespace catalogo_web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            //Manejar PostBack !!!!!!!!!!!!!!!!!!!!!!
+
+            //Está mal armada la lógica. No puede estar toda la lógica del lado del false
+
+            if ((Session["error"] == null))
+            {
+                Response.Redirect("Default.aspx");
+                return;
+            }
+            
             lblError.Text = Session["error"].ToString();
+            
+            if (lblError.Text == "User o Pass incorrectos")
+            {
+                lnkLoguin.Visible = true;
+
+            }
+
+
+
         }
     }
 }

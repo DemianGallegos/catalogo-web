@@ -47,7 +47,6 @@
         </div>
     </div>
 
-
     <div class="row pt-2 bg-body-secondary">
         <div class="col-3">
             <div class="row">

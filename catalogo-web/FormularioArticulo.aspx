@@ -55,10 +55,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-
-    <!--  OCULTAR EL iD QUE TRAE EN HTTP, PAR CUMPLIR CON REQ DE SEGURIDAD ? -->
-
-
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-sm">
             <div class="modal-content">
@@ -87,7 +83,6 @@
         </div>
     </div>
 
-
     <div class="row pt-4 bg-body-tertiary">
         <div class="col"></div>
         <div class="col-8">
@@ -104,19 +99,19 @@
                     <div class="mb-3 row">
                         <label class="col-sm-3 col-form-label text-sm-end">Código</label>
                         <div class="col-sm-9">
-                            <asp:TextBox ID="txtCodigo" CssClass="form-control" ClientIDMode="Static" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtCodigo" CssClass="form-control" ClientIDMode="Static" MaxLength="50" runat="server"></asp:TextBox>
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label class="col-sm-3 col-form-label text-sm-end">Nombre</label>
                         <div class="col-sm-9">
-                            <asp:TextBox ID="txtNombre" CssClass="form-control" ClientIDMode="Static" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtNombre" CssClass="form-control" ClientIDMode="Static" MaxLength="50" runat="server"></asp:TextBox>
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label class="col-sm-3 col-form-label text-sm-end">Descripción</label>
                         <div class="col-sm-9">
-                            <asp:TextBox ID="txtDescripcion" MaxLength="100" CssClass="form-control" ClientIDMode="Static" TextMode="MultiLine" Rows="3" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtDescripcion" CssClass="form-control" ClientIDMode="Static" MaxLength="150" TextMode="MultiLine" Rows="3" runat="server"></asp:TextBox>
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -141,7 +136,7 @@
                     <div class="mb-3 row">
                         <label class="col-sm-3 col-form-label text-sm-end">Precio</label>
                         <div class="col-sm-9">
-                            <asp:TextBox ID="txtPrecio" CssClass="form-control" ClientIDMode="Static"
+                            <asp:TextBox ID="txtPrecio" TextMode="Number" CssClass="form-control" ClientIDMode="Static"
                                 runat="server"></asp:TextBox>
 
                         </div>
@@ -171,19 +166,10 @@
                         <div class="col-sm-9 offset-sm-3">
                             <div class="d-flex gap-2">
 
-
-                                <!--    PRUEBAS VOLVER A SU LUGAR  !!!!!!!!               -->
-
-
-                                <!--Falta el OnClientClick en el botón Agregar-->
-                                <!--oninput="this.value = this.value.replace(/[^0-9.,]/g, '')" -->
-                                <!--OnClientClick="return validar()"-->
-
-
                                 <asp:Button ID="btnAgregar" runat="server" CssClass="btn btn-primary"
-                                    OnClick="btnAgregar_Click" Text="Agregar" />
+                                    OnClientClick="return validar()" OnClick="btnAgregar_Click" Text="Agregar" />
                                 <asp:Button ID="btnModificar" runat="server" CssClass="btn btn-primary"
-                                    OnClick="btnModificar_Click" Text="Modificar" />
+                                    OnClientClick="return validar()" OnClick="btnModificar_Click" Text="Modificar" />
                                 <button type="button" id="btnModal" runat="server" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                     Eliminar 
                                 </button>

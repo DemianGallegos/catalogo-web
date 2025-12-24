@@ -47,11 +47,11 @@
             <div class="mb-3">
 
                 <label for="exampleFormControlInput1" class="form-label">Nombre</label>
-                <asp:TextBox ID="txtNombre" CssClass="form-control" ClientIDMode="Static" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtNombre" CssClass="form-control" ClientIDMode="Static" MaxLength="50" runat="server"></asp:TextBox>
             </div>
             <div class="mb-4">
                 <label for="exampleFormControlInput1" class="form-label">Apellido</label>
-                <asp:TextBox ID="txtApellido" CssClass="form-control" ClientIDMode="Static" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtApellido" CssClass="form-control" ClientIDMode="Static" MaxLength="50" runat="server"></asp:TextBox>
             </div>
             <asp:Button ID="btnGuardar" CssClass="btn btn-primary" OnClientClick="return validar()" OnClick="btnGuardar_Click" runat="server" Text="Guardar" />  
         </div>
@@ -59,7 +59,6 @@
         <div class="col-3">
             <div class="mb-3">
                 <label class="form-label">Imagen Perfil</label>
-                 <!--<input type="file" class="form-control" id="inputGroupFile01">-->
                 <asp:TextBox ID="txtUrlImagen" CssClass="form-control" OnTextChanged="txtUrlImagen_TextChanged" AutoPostBack="true" runat="server"></asp:TextBox>
             </div>
             <div class="row">
@@ -69,10 +68,6 @@
                 </div>
             </div>
 
-
-
-
-         
         </div>
         <div class="col-3"></div>
     </div>

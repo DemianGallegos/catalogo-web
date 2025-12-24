@@ -13,12 +13,16 @@ namespace catalogo_web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            if (!Seguridad.esAdmin(Session["usuario"]))
+            if ((Usuario)Session["usuario"] != null)
             {
-                Session.Add("error", "Se requieren permisos de Admin para acceder a esta pantalla");
-                Response.Redirect("Error.aspx");
+                if (!Seguridad.esAdmin(Session["usuario"]))
+                {
+                    Session.Add("error", "Se requieren permisos de Admin para acceder a esta pantalla");
+                    Response.Redirect("Error.aspx");
+                }
             }
+
+                
 
             ArticuloNegocio negocio = new ArticuloNegocio();
             dgvArticulos.DataSource = negocio.listar();

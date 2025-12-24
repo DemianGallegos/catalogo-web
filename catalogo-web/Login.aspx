@@ -13,7 +13,7 @@
                 <div class="mb-0">
                     <label class="form-label small mb-1">Email</label>
                     <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control"
-                        placeholder="Email" TextMode="Email" MaxLength="60"></asp:TextBox>
+                        placeholder="Email" TextMode="Email" MaxLength="50"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="reqEmail" runat="server" ControlToValidate="txtEmail"
                         CssClass="text-danger small d-block mt-0" ErrorMessage="El email es obligatorio"></asp:RequiredFieldValidator>
                 </div>

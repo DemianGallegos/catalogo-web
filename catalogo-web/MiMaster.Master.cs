@@ -17,7 +17,8 @@ namespace catalogo_web
             imgAvatar.ImageUrl = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png";
 
             bool sesionActiva = Seguridad.sesionActiva(Session["usuario"]);
-            bool paginaPublica = (Page is Login || Page is LoginIngreso || Page is Default || Page is Registro || Page is Error || Page is FormularioArticulo);
+            bool paginaPublica = (Page is Login || Page is LoginIngreso || Page is Default || Page is Registro
+                || Page is Error);
 
             if (!paginaPublica && !sesionActiva)
             {

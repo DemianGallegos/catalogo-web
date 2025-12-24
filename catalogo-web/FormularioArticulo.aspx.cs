@@ -51,7 +51,7 @@ namespace catalogo_web
                     txtDescripcion.Text = seleccionado.Descripcion;
                     ddlCategoria.SelectedValue = seleccionado.Categoria.Id.ToString();
                     ddlMarca.SelectedValue = seleccionado.Marca.Id.ToString();
-                    txtPrecio.Text = seleccionado.Precio.ToString("N2");
+                    txtPrecio.Text = seleccionado.Precio.ToString();
                     txtImagenUrl.Text = seleccionado.ImagenUrl;
 
                     //Validación: si el txtImagenUrl es Null or Empty o si no lo carga que traiga
